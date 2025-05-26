@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <form onsubmit="handleForm(event)">
+
+            <input type="text" 
+            onblur="handleInput(event)"
+             name="firstName"/>
+             <span id="error-firstName"></span>
+
+             <input type="submit" value="save"/>
+
+        </form>
+
+
+
+    <script>
+        function handleInput(e)
+        {
+           
+            var value = e.target.value;
+            switch(e.target.name)
+            {
+                case "firstName": 
+            if(!value)
+            {
+                document.getElementById("error-firstName").innerHTML = "Please Enter FirstName";
+            }
+            break;
+
+
+
+            }
+
+        }
+
+        function handleForm(e)
+        {
+            e.preventDefault();
+
+            let a = new FormData(e.target);
+
+             for (const [key, value] of a.entries()) {
+   handleInput({target: {
+    name : key,
+    value: value
+   }})
+  }
+           
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="id"  
+    onkeypress="handleMyEvent(event)" 
+    onchange="handleOnChange(event)"
+    onblur="handleBlue(event)"
+    
+    />
+    <input type="number" name="abc" />
+
+    <script>
+
+        function handleMyEvent(event)
+        {
+        if(!(event.key >='0' && event.key<='9'))
+        {
+            event.returnValue= false;
+        }
+
+        }
+
+        function handleOnChange(event)
+        {
+            console.log("handle this information");
+        }
+
+        function handleBlue(event)
+        {
+            console.log("blur has been called");
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+         <input  type="text" id="fname"/>
+         <input  type="text" id="lname"/>
+          <input  type="text" id="phoneNumber"/>
+         <input type="button" value="save" onclick="saveInformation()"/>
+
+         <table id="display">
+
+         </table>
+
+    <script>
+
+     displayInformation();
+        function saveInformation()
+        {
+            let data = JSON.parse(localStorage.getItem("userInfo")) || [];
+            let obj = {
+
+                firstName : document.getElementById("fname").value,
+                lastName : document.getElementById("lname").value,
+                phoneNumber: document.getElementById("phoneNumber").value,
+            }
+
+            data.push(obj);
+
+            localStorage.setItem("userInfo",JSON.stringify(data));
+            displayInformation();
+        }
+
+        function displayInformation()
+        {
+            let data = JSON.parse(localStorage.getItem("userInfo")) || [];
+
+            let op = data.map((v)=>{
+
+                return `<tr>
+                        <td>${v.firstName}</td>
+                        <td>${v.lastName}</td>
+                        <td>${v.phoneNumber}</td>
+                        <td>
+                        <button>delete</button>     
+                       </td>
+                       <td>
+                        <button>edit</button>     
+                       </td>
+                    </tr>`
+            });
+
+
+
+            document.getElementById("display").innerHTML = op.join(" ");
+        }
+
+
+    </script>
+</body>
+</html>

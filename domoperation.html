@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <div class="example">This is the information</div>
+    <p class="example">This is the p</p>
+    <input type="radio" value="Male" name="gender" onclick="manageRadio()">Male  
+     <input type="radio" value="fMale" name="gender"  onclick="manageRadio()">FeMale
+      <input type="radio" value="Online" name="mode">Online  
+       <input type="radio" value="Online" name="mode">Offline     
+    <script>
+        /*
+        
+            GetElementByID-> 
+            GetElementByClassName->
+            GetElementByName->
+            GetElementByTagName
+        */
+        
+        function manageRadio()
+        {
+ var information = document.getElementsByName("gender");
+
+        for (const element in information) {
+            
+        if(information[element].checked)
+        {
+ console.log(information[element].value);
+        }
+           
+            
+        }
+
+
+
+        }
+
+
+    </script>
+</body>
+</html>

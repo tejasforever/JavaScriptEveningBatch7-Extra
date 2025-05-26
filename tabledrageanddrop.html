@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Two Adjacent Tables</title>
+  <style>
+    .table-container {
+      display: flex;
+      gap: 20px; /* space between the tables */
+      justify-content: center; /* center the tables horizontally */
+      margin-top: 50px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 300px;
+    }
+
+    th, td {
+      border: 1px solid #555;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Table 1 - Header</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Item A</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>Item B</td>
+        <td>200</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Table 2 - Header</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Item X</td>
+        <td>300</td>
+      </tr>
+      <tr>
+        <td>Item Y</td>
+        <td>400</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+    
+    <div class="displayInfo">This is the information</div>
+ <div class="displayInfo">This is the information</div>
+  <div class="displayInfo">This is the information</div>
+   <div class="displayInfo">This is the information</div>
+    
+    </div>
+    <script>
+
+             let p = document.querySelectorAll(".displayInfo");
+
+            let a= p[0].nextElementSibling;
+
+            console.log(a);
+
+
+                let t= document.getElementsByTagName("div");
+        let s= document.createElement("div");
+
+        s.innerHTML = "This is the information";
+
+        document.body.appendChild(s);
+        console.log(p.length);
+        console.log(t.length);
+      
+
+    </script>
+</body>
+</html>

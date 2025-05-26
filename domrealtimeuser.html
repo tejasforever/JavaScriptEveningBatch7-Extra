@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <input type="checkbox"  
+            onclick="handleCheckBox(event)" />FullStack
+            <div>
+                Front-End
+                <input type="checkbox"  onclick="handleCheckBox(event)"/>
+
+                <div>
+
+                    <input type="checkbox" />CSS
+                    <input type="checkbox" />Html
+                    <input type="checkbox" />React/Javascript
+
+                </div>
+            </div>
+            <div>
+
+               <input type="checkbox"  onclick="handleCheckBox(event)" />  Back-End
+               
+                <div>
+                 <input type="checkbox"/>C#
+                    <input type="checkbox"/>Node.js
+                       <input type="checkbox"/>SQL
+</div>
+
+            </div>
+
+
+        </div>
+
+        <script>
+
+            function handleCheckBox(event)
+            {
+                let p = event.target.parentElement.querySelectorAll("input[type='checkbox']");
+
+                p.forEach(element => {
+                    element.checked =    event.target.checked;
+                });
+
+                
+;            }
+
+
+        </script>
+</body>
+</html>
