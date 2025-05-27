@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkbox Hierarchy</title>
 </head>
 <body>
-        <div>
-            <input type="checkbox"  
-            onclick="handleCheckBox(event)" />FullStack
-            <div>
-                Front-End
-                <input type="checkbox"  onclick="handleCheckBox(event)"/>
+  <div>
+    <input type="checkbox" onclick="handleParentCheckBox(event)" /> FullStack
+    <div>
+      <label>Front-End</label>
+      <input type="checkbox" class="level1" onclick="handleCheckBox(event)" />
+      <div>
+        <input type="checkbox" class="child" onclick="handleChildCheck(event)" /> CSS
+        <input type="checkbox" class="child" onclick="handleChildCheck(event)" /> Html
+        <input type="checkbox" class="child" onclick="handleChildCheck(event)" /> React/Javascript
+      </div>
+    </div>
+    <div>
+      <label>Back-End</label>
+      <input type="checkbox" class="level1" onclick="handleCheckBox(event)" />
+      <div>
+        <input type="checkbox" class="child" onclick="handleChildCheck(event)" /> C#
+        <input type="checkbox" class="child" onclick="handleChildCheck(event)" /> Node.js
+        <input type="checkbox" class="child" onclick="handleChildCheck(event)" /> SQL
+      </div>
+    </div>
+  </div>
 
-                <div>
+  <script>
+    function handleParentCheckBox(event) {
+      const parentDiv = event.target.closest("div");
+      const checkboxes = parentDiv.querySelectorAll("input[type='checkbox']");
+      checkboxes.forEach(cb => cb.checked = event.target.checked);
+    }
 
-                    <input type="checkbox" />CSS
-                    <input type="checkbox" />Html
-                    <input type="checkbox" />React/Javascript
+    function handleCheckBox(event) {
+      const parent = event.target.closest("div");
+      const checkboxes = parent.querySelectorAll("input[type='checkbox']");
+      checkboxes.forEach(cb => cb.checked = event.target.checked);
+      updateTopCheckbox();
+    }
 
-                </div>
-            </div>
-            <div>
+    function handleChildCheck(event) {
+      const child = event.target;
+      const level1Div = child.closest("div").previousElementSibling;
+      const parentCheckbox = level1Div.previousElementSibling;
 
-               <input type="checkbox"  onclick="handleCheckBox(event)" />  Back-End
-               
-                <div>
-                 <input type="checkbox"/>C#
-                    <input type="checkbox"/>Node.js
-                       <input type="checkbox"/>SQL
-</div>
+      const siblingCheckboxes = child.closest("div").querySelectorAll("input[type='checkbox']");
+      const anyUnchecked = Array.from(siblingCheckboxes).some(cb => !cb.checked);
 
-            </div>
+      parentCheckbox.checked = !anyUnchecked;
 
+      updateTopCheckbox();
+    }
 
-        </div>
+    function updateTopCheckbox() {
+      const allLevel1 = document.querySelectorAll(".level1");
+      const topCheckbox = document.querySelector("body > div > input[type='checkbox']");
+      const allLevel1Checked = Array.from(allLevel1).every(cb => cb.checked);
 
-        <script>
-
-            function handleCheckBox(event)
-            {
-                let p = event.target.parentElement.querySelectorAll("input[type='checkbox']");
-
-                p.forEach(element => {
-                    element.checked =    event.target.checked;
-                });
-
-                
-;            }
-
-
-        </script>
+      topCheckbox.checked = allLevel1Checked;
+    }
+  </script>
 </body>
 </html>
