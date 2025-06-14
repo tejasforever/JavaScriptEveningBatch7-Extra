@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="array-practice">
+        <input type="text" id="enter-number" placeholder="Enter a number">
+        <input type="button" value="Add" onclick="addNumber()">
+    </div>
+    <div id="result">
+    </div>
+    <script>
+
+        let myArray = [12,20,30,40,50,60,70,80,90,100];
+        let addNumber = () =>{
+            // Get the value from the input field
+            let inputValue = Number(document.getElementById("enter-number").value);
+            let pushNumber = myArray.push(inputValue);
+            document.getElementById("result").innerHTML = myArray.join(" _ ");
+            console.log(myArray);
+        }
+        console.log(myArray);
+        
+    </script>
+</body>
+
+</html> 
